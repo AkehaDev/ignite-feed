@@ -6,4 +6,9 @@
   html {
     font-family: roboto, sans-serif;
   }
+
+  body{
+    @apply bg-ignite-gray-800;
+    @apply text-ignite-gray-100;
+  }
 }

@@ -8,7 +8,7 @@ export function Sidebar() {
         src="https://images.unsplash.com/photo-1507752533523-5186b0bc4c43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
         alt="profile banner"
         className="h-[4.5rem] w-full object-cover" />
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center mt-[calc(0px_-_1.535rem_-_6px)]">
         <Avatar
           src="https://github.com/akehadev.png" />
         <strong className='mt-4 text-ignite-gray-100 leading-[1.6]'>Akeha</strong>

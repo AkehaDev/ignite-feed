@@ -11,4 +11,10 @@
     @apply bg-ignite-gray-800;
     @apply text-ignite-gray-100;
   }
+
+  *{
+    @apply focus:outline-none;
+    @apply focus:shadow-[0px_0px_0px_2px_#00B37E];
+    @apply focus:rounded-[0.25rem];
+  }
 }

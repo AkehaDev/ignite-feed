@@ -25,7 +25,7 @@ export function Post(Props) {
         &nbsp;
         <p> I just uploaded another project in my portfolio. It's a project that i did at NLW Return, a Rocketseat event. The project name is DoctorCare 🚀</p>
         &nbsp;
-        <p><a href="#" className='text-ignite-green-100 text-ignite-green-500 hover:text-ignite-green-300 transition-[0.1s] font-bold'>👉 jane.design/doctorcare</a></p>
+        <p><a href="#" className='text-ignite-green-100 text-ignite-green-500 hover:text-ignite-green-300 transition-[0.1s] font-bold'>👉 akeha.design/doctorcare</a></p>
         &nbsp;
         <p className='flex gap-1 text-ignite-green-100 font-bold'>
           <a href="#" className='text-ignite-green-500 hover:text-ignite-green-300 transition-[0.1s]'>#newproject</a>

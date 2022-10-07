@@ -15,7 +15,8 @@ module.exports = {
         "ignite-gray-200": "#C4C4CC",
         "ignite-gray-300": "#8D8D99",
         "ignite-gray-400": "#7C7C8A",
-        "ignite-gray-600": "#323238",
+        "ignite-gray-500": "#323238",
+        "ignite-gray-600": "#29292E",
         "ignite-gray-700": "#202024",
         "ignite-gray-800": "#121214",
 

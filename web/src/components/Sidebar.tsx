@@ -15,7 +15,7 @@ export function Sidebar() {
         <span className='text-sm text-ignite-gray-300 leading-[1.6]'>Dev Front-End</span>
       </div>
 
-      <footer className='flex justify-center border-t border-ignite-gray-600 mt-6 pt-6 pb-8'>
+      <footer className='flex justify-center border-t border-ignite-gray-500 mt-6 pt-6 pb-8'>
         <a
           href="#"
           className='border rounded-lg text-ignite-green-100 border-ignite-green-100 pt-4 pb-[0.88rem] hover:bg-ignite-green-100 hover:text-ignite-white transition cursor-pointer '

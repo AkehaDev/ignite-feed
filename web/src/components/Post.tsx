@@ -14,7 +14,7 @@ export function Post(Props) {
           </div>
         </div>
         <time className='text-ignite-gray-300 text-sm leading-[1.6]'
-          title='October 29, 08:44 PM'
+          title='Octuber 5, 08:44 PM'
           dateTime='2022-10-05 08:44 PM'>
           Posted 1h ago
         </time>
@@ -34,7 +34,7 @@ export function Post(Props) {
         </p>
       </div>
 
-      <form className='border-t border-ignite-gray-600 mt-6 pt-6 group'>
+      <form className='border-t border-ignite-gray-500 mt-6 pt-6 group'>
         <p className='font-bold leading-[1.6] text-ignite-gray-100 pb-4'>Leave your feedback</p>
         <textarea className='w-full h-24 mb-4 leading-[1.4] rounded-lg bg-ignite-gray-800 text-ignite-gray-200 py-[0.82rem] px-4 resize-none focus:border-none focus:outline-none focus:shadow-[0px_0px_0px_2px] focus:shadow-ignite-green-100 focus:transition-[0.3s]'
           placeholder='Wow, i loved! Congratulations!'>

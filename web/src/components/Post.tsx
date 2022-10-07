@@ -1,8 +1,10 @@
 import { Avatar } from './Avatar'
+import { Comment } from './Comment'
 
 export function Post(Props) {
   return (
-    <article className='bg-ignite-gray-700 rounded-lg py-8 px-8 first:mb-8 last:mb-0'>
+    <article className='bg-ignite-gray-700 rounded-lg py-8 px-8 mb-8'>
+
       <header className='flex items-center justify-between'>
         <div className='flex items-center gap-4'>
           <Avatar
@@ -39,10 +41,17 @@ export function Post(Props) {
         <textarea className='w-full h-24 mb-4 leading-[1.4] rounded-lg bg-ignite-gray-800 text-ignite-gray-200 py-[0.82rem] px-4 resize-none focus:border-none focus:outline-none focus:shadow-[0px_0px_0px_2px] focus:shadow-ignite-green-100 focus:transition-[0.3s]'
           placeholder='Wow, i loved! Congratulations!'>
         </textarea>
-        <footer className='invisible max-h-0 opacity-0 group-focus-within:visible group-focus-within:max-h-52 group-focus-within:opacity-100 group-focus-within:transition-[0.3s]'>
+
+        <footer className='invisible max-h-0 opacity-0 group-focus-within:visible group-focus-within:max-h-52 group-focus-within:opacity-100 transition-[0.3s]'>
           <button className='py-4 px-6 rounded-lg cursor-pointer bg-ignite-green-300 hover:bg-ignite-green-100 hover:transition-[0.3s]'>Post</button>
         </footer>
       </form>
+
+      <div>
+        <Comment/>
+        <Comment/>
+        <Comment/>
+      </div>
     </article>
   )
 }

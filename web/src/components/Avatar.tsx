@@ -11,7 +11,7 @@ export function Avatar({ src }) {
 
 export function CommentAvatar({ src }) {
   return (
-    <img className="w-[calc(3.07rem_+_12px)] rounded-lg border-4"
+    <img className="w-[calc(3.07rem_+_12px)] rounded-lg"
     src={src}
     alt='user avatar' />
 )

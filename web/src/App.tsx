@@ -9,7 +9,8 @@ function App() {
   return (
     <div>
       <Header />
-      <div className='grid grid-cols-[16rem_1fr] max-w-[70rem] mx-auto mt-8 gap-8 items-start'>
+      <div className='grid md:grid-cols-[16rem_1fr] max-w-[70rem] md:mx-auto mt-8 gap-8 items-start
+       mx-7 text-[87.5%] md:text-base '>
         <aside>
           <Sidebar />
         </aside>

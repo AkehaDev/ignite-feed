@@ -28,6 +28,14 @@ export function Post({ author, content, publishedAt }) {
     setNewCommentText('')
   }
 
+  function deleteComment(commentToDelete) {
+    const commentsWithoutDeletedOne = comments.filter(comment => {
+      return comment !== commentToDelete
+    })
+
+    setComments(commentsWithoutDeletedOne)
+  }
+
 
   return (
     <article className='bg-ignite-gray-700 rounded-lg py-8 px-8 mb-8'>
@@ -80,7 +88,7 @@ export function Post({ author, content, publishedAt }) {
       </form>
 
       <div>
-        {comments.map(comment => <Comment content={comment} />)}
+        {comments.map(comment => <Comment content={comment} onDeleteComment={deleteComment} />)}
       </div>
     </article>
   )

@@ -1,7 +1,7 @@
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 
-export function Post(Props) {
+export function Post({ author, content, publishedAt }) {
   return (
     <article className='bg-ignite-gray-700 rounded-lg py-8 px-8 mb-8'>
 
@@ -11,8 +11,8 @@ export function Post(Props) {
             src="https://github.com/natsume2b.png"
           />
           <div className='flex flex-col'>
-            <strong className='leading-[1.6]' >{Props.author}</strong>
-            <span className='text-ignite-gray-300 text-sm leading-[1.6]'>{Props.role}</span>
+            <strong className='leading-[1.6]' >{author.name}</strong>
+            <span className='text-ignite-gray-300 text-sm leading-[1.6]'>{author.role}</span>
           </div>
         </div>
         <time className='text-ignite-gray-300 text-sm leading-[1.6]'
@@ -23,17 +23,13 @@ export function Post(Props) {
       </header>
 
       <div className='pt-6 leading-[1.6] text-ignite-gray-200 '>
-        <p>Hi guuuys 👋</p>
-        &nbsp;
-        <p> I just uploaded another project in my portfolio. It's a project that i did at NLW Return, a Rocketseat event. The project name is DoctorCare 🚀</p>
-        &nbsp;
-        <p><a href="#" className='text-ignite-green-100 text-ignite-green-500 hover:text-ignite-green-300 transition-[0.1s] font-bold'>👉 akeha.design/doctorcare</a></p>
-        &nbsp;
-        <p className='flex gap-1 text-ignite-green-100 font-bold'>
-          <a href="#" className='text-ignite-green-500 hover:text-ignite-green-300 transition-[0.1s]'>#newproject</a>
-          <a href="#" className='text-ignite-green-500 hover:text-ignite-green-300 transition-[0.1s]'>#nlw </a>
-          <a href="#" className='text-ignite-green-500 hover:text-ignite-green-300 transition-[0.1s]'>#rocketseat</a>
-        </p>
+        {content.map(line => {
+          if (line.type === 'paragraph') {
+            return <p key={line.content} className="mb-4">{line.content}</p>
+          } else if (line.type === 'link') {
+            return <p><a key={line.content} href="#" className='text-ignite-green-100 text-ignite-green-500 hover:text-ignite-green-300 transition-[0.1s] font-bold'>{line.content}</a></p>
+          }
+        })}
       </div>
 
       <form className='border-t border-ignite-gray-500 mt-6 pt-6 group'>
@@ -48,9 +44,9 @@ export function Post(Props) {
       </form>
 
       <div>
-        <Comment/>
-        <Comment/>
-        <Comment/>
+        <Comment />
+        <Comment />
+        <Comment />
       </div>
     </article>
   )

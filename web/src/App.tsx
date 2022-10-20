@@ -5,7 +5,41 @@ import { Sidebar } from './components/Sidebar'
 import { Post } from './components/Post'
 
 
-function App() {
+const posts = [
+  {
+    Id: 1,
+    author: {
+      avatarUrl: "https://github.com/natsume2b.png",
+      name: 'Natsume',
+      role: 'Web Developer',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
+      { type: 'link', content: 'jane.design/doctorcare' },
+      { type: 'link', content: '#novoprojeto #nlw #rocketseat' },
+    ],
+    publishedAt: new Date('2022-10-10 14:41:00'),
+  },
+  {
+    Id: 2,
+    author: {
+      avatarUrl: "https://github.com/maykbrito.png",
+      name: 'Mayk Brito',
+      role: 'Educator at @Rocketseat',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
+      { type: 'link', content: 'jane.design/doctorcare' },
+      { type: 'link', content: ' #novoprojeto #nlw #rocketseat' },
+    ],
+    publishedAt: new Date('2022-10-08 14:41:00'),
+  },
+
+];
+
+export function App() {
   return (
     <div>
       <Header />
@@ -15,19 +49,18 @@ function App() {
           <Sidebar />
         </aside>
         <main>
-          <Post
-            author="Akeha"
-            role="Dev Front-End"
-          />
-          <Post
-            author="Akeha"
-            role="Dev Front-End"
-          />
+          {posts.map(post => {
+            return (
+              <Post
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            )
+          })}
         </main>
       </div>
     </div>
 
   )
 }
-
-export default App

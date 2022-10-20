@@ -12,7 +12,7 @@ export function Comment() {
         <div className="rounded-lg px-4 pt-4 pb-[1.563rem] bg-ignite-gray-600">
           <header className="flex justify-between">
             <div className="mb-4">
-              <strong className="flex text-sm leading-[1.6]">Akeha</strong>
+              <strong className="flex text-sm leading-[1.6]">Natsume</strong>
               <time className="pb-4 text-xs leading-[1.6] text-ignite-gray-300"
                 title="Octuber 7, 11:58 AM"
                 dateTime="2022-10-07 11:58 AM"
@@ -28,7 +28,7 @@ export function Comment() {
               </button>
             </div>
           </header>
-          <p className="text-sm leading-[1.6]">Very good Akeha, congratulations!! 👏👏</p>
+          <p className="text-sm leading-[1.6]">Very good Natsume, congratulations!! 👏👏</p>
         </div>
 
         <footer className="mt-4">

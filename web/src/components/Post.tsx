@@ -1,7 +1,17 @@
+import { format, formatDistanceToNow } from 'date-fns'
+
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 
+
+
 export function Post({ author, content, publishedAt }) {
+
+  const publishedDateFormat = format(publishedAt, "MMMM dd 'at' HH:mm")
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    addSuffix: true,
+  })
+
   return (
     <article className='bg-ignite-gray-700 rounded-lg py-8 px-8 mb-8'>
 
@@ -16,9 +26,9 @@ export function Post({ author, content, publishedAt }) {
           </div>
         </div>
         <time className='text-ignite-gray-300 text-sm leading-[1.6]'
-          title='Octuber 5, 08:44 PM'
-          dateTime='2022-10-05 08:44 PM'>
-          Posted 1h ago
+          title={publishedDateFormat}
+          dateTime={publishedAt.toISOString()}>
+          {publishedDateRelativeToNow}
         </time>
       </header>
 

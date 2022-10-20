@@ -5,8 +5,6 @@ import { useState } from 'react'
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 
-
-
 export function Post({ author, content, publishedAt }) {
 
   const publishedDateFormat = format(publishedAt, "MMMM dd 'at' HH:mm")
@@ -17,8 +15,12 @@ export function Post({ author, content, publishedAt }) {
   const [newCommentText, setNewCommentText] = useState('')
   const [comments, setComments] = useState([])
 
-  function handleCommentChange() {
+  const isNewCommentValid = newCommentText.length === 0
+
+  function handleNewCommentChange() {
     setNewCommentText(event.target.value)
+
+    event.target.setCustomValidity('');
   }
 
   function handleCreateNewComment() {
@@ -26,6 +28,10 @@ export function Post({ author, content, publishedAt }) {
 
     setComments([...comments, newCommentText])
     setNewCommentText('')
+  }
+
+  function handleNewInvalidComment(){
+    event.target.setCustomValidity('You must type something!')
   }
 
   function deleteComment(commentToDelete) {
@@ -72,15 +78,18 @@ export function Post({ author, content, publishedAt }) {
         <textarea
           className='w-full h-24 mb-4 leading-[1.4] rounded-lg bg-ignite-gray-800 text-ignite-gray-200 py-[0.82rem] px-4 resize-none focus:border-none focus:outline-none focus:shadow-[0px_0px_0px_2px] focus:shadow-ignite-green-100 focus:transition-[0.3s]'
           placeholder='Wow, i loved! Congratulations!'
-          onChange={handleCommentChange}
+          onChange={handleNewCommentChange}
           value={newCommentText}
+          onInvalid={handleNewInvalidComment}
+          required
         >
         </textarea>
 
         <footer className='invisible max-h-0 opacity-0 group-focus-within:visible group-focus-within:max-h-52 group-focus-within:opacity-100 transition-[0.3s]'>
           <button
-            className='py-4 px-6 rounded-lg cursor-pointer bg-ignite-green-300 hover:bg-ignite-green-100 hover:transition-[0.3s]'
+            className='py-4 px-6 rounded-lg cursor-pointer bg-ignite-green-300 hover:bg-ignite-green-100 hover:transition-[0.3s] disabled:opacity-10 disabled:cursor-not-allowed duration-[0.3s]'
             type='submit'
+            disabled={isNewCommentValid}
           >
             Post
           </button>

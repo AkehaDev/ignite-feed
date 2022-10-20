@@ -6,7 +6,7 @@ export function Comment() {
   return (
     <div className="flex gap-4 mt-6 ">
       <CommentAvatar
-        src="https://github.com/akehadev.png"
+        src="https://github.com/natsume2b.png"
       />
       <div className="flex-1">
         <div className="rounded-lg px-4 pt-4 pb-[1.563rem] bg-ignite-gray-600">

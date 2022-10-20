@@ -8,7 +8,7 @@ export function Post(Props) {
       <header className='flex items-center justify-between'>
         <div className='flex items-center gap-4'>
           <Avatar
-            src="https://github.com/akehadev.png"
+            src="https://github.com/natsume2b.png"
           />
           <div className='flex flex-col'>
             <strong className='leading-[1.6]' >{Props.author}</strong>

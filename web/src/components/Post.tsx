@@ -1,5 +1,7 @@
 import { format, formatDistanceToNow } from 'date-fns'
 
+import { useState } from 'react'
+
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 
@@ -12,13 +14,28 @@ export function Post({ author, content, publishedAt }) {
     addSuffix: true,
   })
 
+  const [newCommentText, setNewCommentText] = useState('')
+  const [comments, setComments] = useState([])
+
+  function handleCommentChange() {
+    setNewCommentText(event.target.value)
+  }
+
+  function handleCreateNewComment() {
+    event.preventDefault()
+
+    setComments([...comments, newCommentText])
+    setNewCommentText('')
+  }
+
+
   return (
     <article className='bg-ignite-gray-700 rounded-lg py-8 px-8 mb-8'>
 
       <header className='flex items-center justify-between'>
         <div className='flex items-center gap-4'>
           <Avatar
-            src="https://github.com/natsume2b.png"
+            src={author.avatarUrl}
           />
           <div className='flex flex-col'>
             <strong className='leading-[1.6]' >{author.name}</strong>
@@ -42,21 +59,28 @@ export function Post({ author, content, publishedAt }) {
         })}
       </div>
 
-      <form className='border-t border-ignite-gray-500 mt-6 pt-6 group'>
+      <form onSubmit={handleCreateNewComment} className='border-t border-ignite-gray-500 mt-6 pt-6 group'>
         <p className='font-bold leading-[1.6] text-ignite-gray-100 pb-4'>Leave your feedback</p>
-        <textarea className='w-full h-24 mb-4 leading-[1.4] rounded-lg bg-ignite-gray-800 text-ignite-gray-200 py-[0.82rem] px-4 resize-none focus:border-none focus:outline-none focus:shadow-[0px_0px_0px_2px] focus:shadow-ignite-green-100 focus:transition-[0.3s]'
-          placeholder='Wow, i loved! Congratulations!'>
+        <textarea
+          className='w-full h-24 mb-4 leading-[1.4] rounded-lg bg-ignite-gray-800 text-ignite-gray-200 py-[0.82rem] px-4 resize-none focus:border-none focus:outline-none focus:shadow-[0px_0px_0px_2px] focus:shadow-ignite-green-100 focus:transition-[0.3s]'
+          placeholder='Wow, i loved! Congratulations!'
+          onChange={handleCommentChange}
+          value={newCommentText}
+        >
         </textarea>
 
         <footer className='invisible max-h-0 opacity-0 group-focus-within:visible group-focus-within:max-h-52 group-focus-within:opacity-100 transition-[0.3s]'>
-          <button className='py-4 px-6 rounded-lg cursor-pointer bg-ignite-green-300 hover:bg-ignite-green-100 hover:transition-[0.3s]'>Post</button>
+          <button
+            className='py-4 px-6 rounded-lg cursor-pointer bg-ignite-green-300 hover:bg-ignite-green-100 hover:transition-[0.3s]'
+            type='submit'
+          >
+            Post
+          </button>
         </footer>
       </form>
 
       <div>
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map(comment => <Comment content={comment} />)}
       </div>
     </article>
   )

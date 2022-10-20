@@ -1,5 +1,9 @@
+
+
 import { Avatar } from './Avatar'
 import { PencilSimpleLine } from 'phosphor-react'
+
+
 
 export function Sidebar() {
   return (
@@ -10,8 +14,8 @@ export function Sidebar() {
         className="h-[4.5rem] w-full object-cover" />
       <div className="flex flex-col items-center mt-[calc(0px_-_1.535rem_-_6px)]">
         <Avatar
-          src="https://github.com/akehadev.png" />
-        <strong className='mt-4 text-ignite-gray-100 leading-[1.6]'>Akeha</strong>
+          src="https://github.com/natsume2b.png" />
+        <strong className='mt-4 text-ignite-gray-100 leading-[1.6]'>Natsume</strong>
         <span className='text-sm text-ignite-gray-300 leading-[1.6]'>Dev Front-End</span>
       </div>
 

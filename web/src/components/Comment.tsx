@@ -2,17 +2,22 @@ import { CommentAvatar } from "./Avatar"
 import { ThumbsUp } from "phosphor-react"
 import { Trash } from "phosphor-react"
 
-export function Comment() {
+export function Comment({ content, onDeleteComment }) {
+  function handleDeleteComment() {
+    onDeleteComment(content)
+  }
+
+
   return (
     <div className="flex gap-4 mt-6 ">
       <CommentAvatar
-        src="https://github.com/akehadev.png"
+        src="https://github.com/natsume2b.png"
       />
       <div className="flex-1">
         <div className="rounded-lg px-4 pt-4 pb-[1.563rem] bg-ignite-gray-600">
           <header className="flex justify-between">
             <div className="mb-4">
-              <strong className="flex text-sm leading-[1.6]">Akeha</strong>
+              <strong className="flex text-sm leading-[1.6]">Natsume</strong>
               <time className="pb-4 text-xs leading-[1.6] text-ignite-gray-300"
                 title="Octuber 7, 11:58 AM"
                 dateTime="2022-10-07 11:58 AM"
@@ -21,14 +26,16 @@ export function Comment() {
               </time>
             </div>
             <div>
-              <button className="leading-[0] text-ignite-gray-300 hover:text-ignite-red-500"
+              <button
+                className="leading-[0] text-ignite-gray-300 hover:text-ignite-red-500"
                 title="Delete comment"
+                onClick={handleDeleteComment}
               >
                 <Trash size={24} />
               </button>
             </div>
           </header>
-          <p className="text-sm leading-[1.6]">Very good Akeha, congratulations!! 👏👏</p>
+          <p className="text-sm leading-[1.6]">{content}</p>
         </div>
 
         <footer className="mt-4">

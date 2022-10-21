@@ -5,9 +5,30 @@ import { Sidebar } from './components/Sidebar'
 import { Post } from './components/Post'
 
 
-const posts = [
+interface Author {
+  avatarUrl: string,
+  name: string,
+  role: string,
+}
+
+interface Post extends PostsProps {
+  id: number,
+}
+
+interface Content {
+  type: 'paragraph' | 'link',
+  content: string,
+}
+
+export interface PostsProps {
+  author: Author,
+  content: Content[],
+  publishedAt: Date,
+}
+
+const posts: Post[] = [
   {
-    Id: 1,
+    id: 1,
     author: {
       avatarUrl: "https://github.com/natsume2b.png",
       name: 'Natsume',
@@ -22,7 +43,7 @@ const posts = [
     publishedAt: new Date('2022-10-20 14:41:00'),
   },
   {
-    Id: 2,
+    id: 2,
     author: {
       avatarUrl: "https://github.com/maykbrito.png",
       name: 'Mayk Brito',

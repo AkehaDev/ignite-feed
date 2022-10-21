@@ -1,4 +1,8 @@
-export function Avatar({ src }) {
+interface AvatarProps {
+ src: string
+}
+
+export function Avatar({ src }:AvatarProps) {
   return (
     <div>
       <img className="w-[calc(3.07rem_+_12px)] h-[calc(3.07rem_+_12px)] rounded-lg border-4 border-ignite-gray-700 outline outline-ignite-green-100"
@@ -9,10 +13,10 @@ export function Avatar({ src }) {
   )
 }
 
-export function CommentAvatar({ src }) {
+export function CommentAvatar({ src }:AvatarProps) {
   return (
     <img className="w-[calc(3.07rem_+_12px)] h-[calc(3.07rem_+_12px)] rounded-lg"
-    src={src}
-    alt='user avatar' />
-)
+      src={src}
+      alt='user avatar' />
+  )
 }

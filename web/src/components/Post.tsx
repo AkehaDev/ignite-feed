@@ -1,11 +1,12 @@
 import { format, formatDistanceToNow } from 'date-fns'
 
-import { useState } from 'react'
+import { useState, FormEvent, InvalidEvent, ChangeEvent } from 'react'
 
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
+import { PostsProps } from '../App'
 
-export function Post({ author, content, publishedAt }) {
+export function Post({ author, content, publishedAt }:PostsProps) {
 
   const publishedDateFormat = format(publishedAt, "MMMM dd 'at' HH:mm")
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
@@ -17,24 +18,24 @@ export function Post({ author, content, publishedAt }) {
 
   const isNewCommentValid = newCommentText.length === 0
 
-  function handleNewCommentChange() {
+  function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
     setNewCommentText(event.target.value)
 
     event.target.setCustomValidity('');
   }
 
-  function handleCreateNewComment() {
+  function handleCreateNewComment(event: FormEvent) {
     event.preventDefault()
 
     setComments([...comments, newCommentText])
     setNewCommentText('')
   }
 
-  function handleNewInvalidComment(){
+  function handleNewInvalidComment(event: InvalidEvent<HTMLTextAreaElement>){
     event.target.setCustomValidity('You must type something!')
   }
 
-  function deleteComment(commentToDelete) {
+  function deleteComment(commentToDelete:string) {
     const commentsWithoutDeletedOne = comments.filter(comment => {
       return comment !== commentToDelete
     })

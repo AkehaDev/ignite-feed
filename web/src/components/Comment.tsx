@@ -2,7 +2,12 @@ import { CommentAvatar } from "./Avatar"
 import { ThumbsUp } from "phosphor-react"
 import { Trash } from "phosphor-react"
 
-export function Comment({ content, onDeleteComment }) {
+interface CommentProps {
+  content: string,
+  onDeleteComment: (comment: string) => void;
+}
+
+export function Comment({ content, onDeleteComment }: CommentProps) {
   function handleDeleteComment() {
     onDeleteComment(content)
   }

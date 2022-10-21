@@ -1,6 +1,8 @@
 import { CommentAvatar } from "./Avatar"
 import { ThumbsUp } from "phosphor-react"
 import { Trash } from "phosphor-react"
+import { useState } from "react";
+
 
 interface CommentProps {
   content: string,
@@ -8,10 +10,16 @@ interface CommentProps {
 }
 
 export function Comment({ content, onDeleteComment }: CommentProps) {
+  const [likes, setLikes] = useState(0)
+
+
   function handleDeleteComment() {
     onDeleteComment(content)
   }
 
+  function handleLikeComment() {
+    return setLikes(likes + 1)
+  }
 
   return (
     <div className="flex gap-4 mt-6 ">
@@ -44,9 +52,12 @@ export function Comment({ content, onDeleteComment }: CommentProps) {
         </div>
 
         <footer className="mt-4">
-          <button className="flex gap-[0.625rem] items-center bg-transparent border-0 hover:text-ignite-green-100 ">
+          <button 
+          className="flex gap-[0.625rem] items-center bg-transparent border-0 hover:text-ignite-green-100 "
+          onClick={handleLikeComment}
+          >
             <ThumbsUp size={20} />
-            Cheer &#8226; 30
+            Cheer &#8226; {likes}
           </button>
         </footer>
       </div>

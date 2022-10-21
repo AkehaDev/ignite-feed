@@ -6,7 +6,7 @@ import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 import { PostsProps } from '../App'
 
-export function Post({ author, content, publishedAt }:PostsProps) {
+export function Post({ author, content, publishedAt }: PostsProps) {
 
   const publishedDateFormat = format(publishedAt, "MMMM dd 'at' HH:mm")
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
@@ -31,11 +31,11 @@ export function Post({ author, content, publishedAt }:PostsProps) {
     setNewCommentText('')
   }
 
-  function handleNewInvalidComment(event: InvalidEvent<HTMLTextAreaElement>){
+  function handleNewInvalidComment(event: InvalidEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('You must type something!')
   }
 
-  function deleteComment(commentToDelete:string) {
+  function deleteComment(commentToDelete: string) {
     const commentsWithoutDeletedOne = comments.filter(comment => {
       return comment !== commentToDelete
     })
